@@ -11,6 +11,11 @@
     <name>knowledgepooling</name>
     <description>Spring Boot</description>
 
+    <!--
+        spring-boot-starter-parent ：
+            作用：作用于其他导入的maven jar 包，当导入的jar包没有设置版本，
+        就会为它设置为默认版本，当然如果希望导入的jar是指定版本的可以手动添加指定版本，如：<version>版本号</version>
+    -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -25,6 +30,11 @@
     </properties>
 
     <dependencies>
+        <!--
+            spring-boot-starter-web：
+                作用：构建Web，包含RESTful风格框架SpringMVC和默认的嵌入式容器Tomcat，
+            RESTful是一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -35,6 +45,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--
+            spring-boot-starter-test：
+                作用：测试 Spring Boot applications包含JUnit、 Hamcrest、Mockito，
+                JUnit、 Hamcrest、Mockito为测试框架
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
