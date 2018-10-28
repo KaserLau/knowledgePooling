@@ -1,6 +1,5 @@
 package com.better.knowledgepooling.entity;
 
-import com.better.knowledgepooling.enums.UserSexEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,9 +13,9 @@ import java.io.Serializable;
 @Data
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Long id;
+    private int id;
     private String userName;
-    private String passWord;
-    private UserSexEnum userSex;
-    private String nickName;
+    private String loginName;
+    private String sex;
+    private int age;
 }
