@@ -60,6 +60,18 @@ public class GlobalExceptionHandler {
             }
             return response;
         }
+        if(e instanceof BusinessException) {
+            CommonResponse response = new CommonResponse();
+            response.setSuccess(false);
+            List<ErrorResponse.ErrorInfo> errors = new ArrayList<ErrorResponse.ErrorInfo>();
+            ErrorResponse.ErrorInfo errorInfo = new ErrorResponse.ErrorInfo();
+            BusinessException businessException = (BusinessException)e;
+            errorInfo.setCode(businessException.getCode());
+            errorInfo.setMessage(businessException.getMessage());
+            errors.add(errorInfo);
+            response.setErrors(errors);
+            return response;
+        }
         CommonResponse response = new CommonResponse();
         response.setSuccess(false);
         List<ErrorResponse.ErrorInfo> errors = new ArrayList<ErrorResponse.ErrorInfo>();

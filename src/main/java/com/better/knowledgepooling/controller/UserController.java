@@ -1,6 +1,7 @@
 package com.better.knowledgepooling.controller;
 
 import com.better.knowledgepooling.entity.UserEntity;
+import com.better.knowledgepooling.handler.BusinessException;
 import com.better.knowledgepooling.service.UserService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,9 @@ public class UserController {
     * */
     @PostMapping(value ="/insert", produces = "application/json")
     public int insertUser(@RequestBody @Validated UserEntity user){
+        if (user.getAge()<18){
+            throw new BusinessException("XXXXXX","用户年龄小于18");
+        }
         return userService.insertUser(user);
     }
 
