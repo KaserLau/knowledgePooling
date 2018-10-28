@@ -2,6 +2,7 @@ package com.better.knowledgepooling.service;
 
 import com.better.knowledgepooling.entity.UserEntity;
 import com.better.knowledgepooling.mapper.UserMapper;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import java.util.List;
  * @Date : Create in 9:47 PM 10/28/2018
  * @Modified By :
  */
+@Service
 public class UserService {
     @Resource
     private UserMapper mapper;
