@@ -14,6 +14,7 @@ import java.util.List;
  * @Modified By :
  */
 @RestController
+@RequestMapping(value = "/mybatis/user")
 public class UserController {
     @Resource
     private UserService userService;
