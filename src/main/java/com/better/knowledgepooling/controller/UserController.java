@@ -2,7 +2,6 @@ package com.better.knowledgepooling.controller;
 
 import com.better.knowledgepooling.entity.UserEntity;
 import com.better.knowledgepooling.service.UserService;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
