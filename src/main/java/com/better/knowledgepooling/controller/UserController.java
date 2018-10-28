@@ -23,7 +23,7 @@ import java.util.List;
 * 在添加@Validated后会对请求参数中添加有验证注解的参数进行验证并会把验证结果放在BindingResult result中
 * 提供给GlobalExceptionHandler(自己写的)识别
 * */
-//@Validated
+@Validated
 public class UserController {
     @Resource
     private UserService userService;
