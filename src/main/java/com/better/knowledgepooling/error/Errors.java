@@ -13,7 +13,9 @@ import java.util.List;
  */
 @Data
 public class Errors implements Serializable {
+
     private List<ErrorInfo> errors;
+
     @Data
     public static class ErrorInfo{
         private String code;

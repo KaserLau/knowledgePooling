@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @Modified By :
  */
 //Step7:使用@ExceptionHandler捕捉由BusinessException抛出的异常并进行处理
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
