@@ -40,6 +40,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--
+             简化getter，setter，toString 的插件，需要IntellJ安装插件。
+        -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -55,6 +58,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--JsonObject-->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
     </dependencies>
 
     <build>
