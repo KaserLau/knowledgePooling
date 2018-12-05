@@ -30,14 +30,14 @@ public class MongoDBController {
     private MongoTemplate mongoTemplate;
 
     @PostMapping(value ="/insert/json", produces = "application/json")
-    public void insertData(@RequestBody MongoDBDataList dataList){
+    public void insertData(@RequestBody MongoDBDataList dataList,String timestamp){
         SimpleDateFormat cdf = new SimpleDateFormat("yyyyMMdd");
         String collectionTime = cdf.format(new Date());
         String collectionName = "INOUT" + collectionTime;
         MongoDatabase database = helper.getMongoDataBase();
         MongoCollection<DBObject> collection = database.getCollection(collectionName, DBObject.class);
         for (JSONObject jsonData:dataList.getDatas()){
-            jsonData.put("timestamp","2018-12-05");
+            jsonData.put("timestamp",timestamp);
             jsonData.discard("_id");
             String json =jsonData.toString();
             System.out.println(json);
