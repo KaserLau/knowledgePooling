@@ -1,14 +1,8 @@
 package com.better.knowledgepooling.controller;
 
 import com.better.knowledgepooling.beans.MongoDBData;
-import com.better.knowledgepooling.beans.MongoDBDataList;
 import com.better.knowledgepooling.domain.NdcDataEntity;
-import com.better.knowledgepooling.handlers.MongoDBHelper;
 import com.mongodb.DBObject;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.util.JSON;
-import net.sf.json.JSONObject;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,35 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RestController
-public class MongoDBController {
+public class MongoTemplateController {
 
-    @Resource
-    private MongoDBHelper helper;
     @Resource
     private MongoTemplate mongoTemplate;
-
-    @PostMapping(value ="/insert/json", produces = "application/json")
-    public void insertData(@RequestBody MongoDBDataList dataList,String timestamp){
-        SimpleDateFormat cdf = new SimpleDateFormat("yyyyMMdd");
-        String collectionTime = cdf.format(new Date());
-        String collectionName = "INOUT" + collectionTime;
-        MongoDatabase database = helper.getMongoDataBase();
-        MongoCollection<DBObject> collection = database.getCollection(collectionName, DBObject.class);
-        for (JSONObject jsonData:dataList.getDatas()){
-            jsonData.put("timestamp",timestamp);
-            jsonData.discard("_id");
-            String json =jsonData.toString();
-            System.out.println(json);
-            DBObject bson = (DBObject) JSON.parse(json);
-            collection.insertOne(bson);
-        }
-    }
 
     @PostMapping(value ="/call/message", produces = "application/json")
     public List<MongoDBData> changeFormat(@RequestBody List<NdcDataEntity> ndcDataEntitys, String timestamp) {
