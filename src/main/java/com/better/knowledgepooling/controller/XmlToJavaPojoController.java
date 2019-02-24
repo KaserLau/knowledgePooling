@@ -31,6 +31,7 @@ public class XmlToJavaPojoController {
     *   c. 当XML中有多个相同标签内容的时候其实对应的就是Java中ArrayList的对象： 如：<originDestination>***</originDestination><originDestination>***</originDestination> 对应的就是：private List<OriginDestination> originDestination;
     *   d. 如XML中出现： <mediaList/>这种类型的数据时，表明mediaList是没东西的，但是对应的是private MediaList mediaList;也会接收但是值为null
     * 3.需要注意的是使用标签@XmlElement(name = "document")或者@XmlRootElement 里面的名字一定要与XML标签指定的值大小写一致。
+    * 4.注意：使用注解@XmlElement的前提需要在bean class中加入注解@XmlAccessorType(XmlAccessType.NONE)，否则@XmlElement会无效并且报错。
     * */
 
     /**
